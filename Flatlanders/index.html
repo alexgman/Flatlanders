@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html ng-app="store">
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<!--<body ng-controller="StoreController as store">
+<div ng-repeat="product in store.products">
+    <h1> {{ product.name}} </h1>
+    <h2> ${{product.price}} </h2>
+    <p> {{ product.description}} </p>
+    <button ng-show="product.canPurchase"> Add to cart </button>
+</div>
+<script src="Scripts/angular.min.js"></script>
+<script src="app.js"></script>
+</body>-->
+<body ng-controller="StoreController as store">
+    <section>
+        <ul class="nav nav-pills">
+            <li> <a href="#" ng-click="tab = 1">Description</a> </li>
+            <li> <a href="#" ng-click="tab = 2">Specifications</a> </li>
+            <li> <a href="#" ng-click="tab = 3">Reviews</a> </li>
+        </ul>
+        {{tab}}
+    </section>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="product in store.products">
+            <h3>
+                {{product.name}}
+                <em class="pull-right">{{product.price | currency}}</em>
+                <img ng-src="{{product.images[0].full}}" />
+            </h3>
+        </li>
+    </ul>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
